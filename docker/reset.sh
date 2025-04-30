@@ -1,0 +1,16 @@
+#!binbash
+
+echo 🛑 Stopping and removing containers...
+docker compose down
+
+echo 🧹 Pruning unused Docker volumes (to clean node_modules etc.)...
+docker volume prune -f
+
+echo 🧹 Removing project-specific volumes manually...
+docker volume rm docker_backend_node_modules docker_frontend_node_modules docker_db_data  true
+
+echo 🛠️ Rebuilding all Docker services without cache...
+docker compose build --no-cache
+
+echo 🚀 Starting up Docker Compose...
+docker compose up

@@ -1,0 +1,16 @@
+{
+  "name": "Node TS Back-end",
+  "dockerComposeFile": ["../../../docker/docker-compose.yml"],
+  "service": "backend",
+  "workspaceFolder": "/app",
+  "shutdownAction": "stopCompose",
+  "extensions": [
+    "ms-vscode.vscode-typescript-next",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ],
+  "settings": { "terminal.integrated.shell.linux": "/bin/sh" },
+  "postCreateCommand": "npm install",
+  "forwardPorts": [4000],
+  "remoteUser": "root"
+}
